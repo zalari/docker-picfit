@@ -1,7 +1,7 @@
 # escape=`
 FROM library/golang as buildagent
 
-ENV PICFIT_VERSION="0.4.0" `
+ENV PICFIT_VERSION="0.5.1" `
     PICFIT_WORKDIR="/go/src/github.com/thoas/picfit"
 
 RUN curl https://github.com/thoas/picfit/archive/${PICFIT_VERSION}.tar.gz -L -O; tar -zxvf ${PICFIT_VERSION}.tar.gz
@@ -15,7 +15,7 @@ RUN make docker-build-static
 # app image
 FROM alpine:3.7
 
-ENV PICFIT_VERSION="0.4.0" `
+ENV PICFIT_VERSION="0.5.1" `
     PICFIT_WORKDIR="/go/src/github.com/thoas/picfit" `
     PICFIT_CONFIGDIR="/etc/picfit"
 
